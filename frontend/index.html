@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>K2Tech AI Lab Onboarding Console</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <div>
+          <span class="hero__badge">K2Tech AI Lab • Executive Edition</span>
+          <h1>Онбординг топ-менеджера без моков</h1>
+          <p>
+            Семиступенчатый маршрут запуска лаборатории: голосовое интервью,
+            автоматическое резюме, roadmap с зависимостями и readiness checklist.
+            Настоящий API + Web Speech, никакой имитации.
+          </p>
+          <ul class="hero__list">
+            <li>Голосовое согласие и юридический след</li>
+            <li>Live-транскрипция и команда голосовых команд</li>
+            <li>Экспорт PDF/Markdown для совета директоров</li>
+          </ul>
+        </div>
+        <div class="hero__stats">
+          <div>
+            <span class="label">Активная сессия</span>
+            <strong id="active-session-label">—</strong>
+          </div>
+          <div>
+            <span class="label">Readiness</span>
+            <strong id="active-readiness">0%</strong>
+          </div>
+          <div>
+            <span class="label">Текущий шаг</span>
+            <strong id="active-step">Welcome</strong>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="app-shell">
+      <aside class="sidebar" id="admin-console">
+        <div class="sidebar__header">
+          <h2>Консоль сессий</h2>
+          <button id="refresh-sessions" title="Обновить список">⟳</button>
+        </div>
+        <form id="session-filter-form" class="sidebar__filters">
+          <label>
+            Язык
+            <select id="filter-language">
+              <option value="">Все</option>
+              <option value="ru">Русский</option>
+              <option value="en">English</option>
+            </select>
+          </label>
+          <label>
+            Статус
+            <select id="filter-status">
+              <option value="">Все</option>
+              <option value="active">Active</option>
+              <option value="completed">Completed</option>
+            </select>
+          </label>
+          <label>
+            Режим
+            <select id="filter-mode">
+              <option value="">Все</option>
+              <option value="standard">Standard</option>
+              <option value="demo">Demo</option>
+            </select>
+          </label>
+          <label>
+            Индустрия
+            <input type="text" id="filter-industry" placeholder="Fintech" />
+          </label>
+        </form>
+        <ul id="sessions-list" class="session-list"></ul>
+      </aside>
+
+      <main class="workflow">
+        <nav class="stepper" id="stepper">
+          <button class="stepper__step active" data-step="0">1. Welcome & Consent</button>
+          <button class="stepper__step" data-step="1">2. Voice Interview</button>
+          <button class="stepper__step" data-step="2">3. Extracted Summary</button>
+          <button class="stepper__step" data-step="3">4. Roadmap</button>
+          <button class="stepper__step" data-step="4">5. Checklist</button>
+          <button class="stepper__step" data-step="5">6. Finalize</button>
+          <button class="stepper__step" data-step="6">7. Export</button>
+        </nav>
+
+        <section id="welcome-step" class="panel step-pane active">
+          <header>
+            <h2>1. Welcome & Consent</h2>
+            <p>Определите контекст сессии и зафиксируйте обязательные согласия.</p>
+          </header>
+          <form id="session-form" class="form-grid">
+            <label>
+              ID пользователя
+              <input type="text" id="user-id" required placeholder="например, ceo-42" />
+            </label>
+            <label>
+              Индустрия
+              <input type="text" id="industry" placeholder="Manufacturing" />
+            </label>
+            <label>
+              Язык
+              <select id="language" required>
+                <option value="ru">Русский</option>
+                <option value="en">English</option>
+              </select>
+            </label>
+            <label>
+              Режим
+              <select id="mode" required>
+                <option value="standard">Стандарт</option>
+                <option value="demo">Демо</option>
+              </select>
+            </label>
+            <label class="consent">
+              <input type="checkbox" id="policy-consent" required />
+              <span>Я подтверждаю согласие с политикой обработки данных и NDA.</span>
+            </label>
+            <label class="consent">
+              <input type="checkbox" id="voice-consent" required />
+              <span>Разрешаю запись и анализ голосовых данных для подготовки отчёта.</span>
+            </label>
+            <button type="submit" class="primary">Запустить сессию</button>
+          </form>
+          <p id="session-status" class="status"></p>
+        </section>
+
+        <section id="voice-step" class="panel step-pane">
+          <header>
+            <h2>2. Voice Interview</h2>
+            <p>Проведите голосовое интервью. Web Speech API обеспечивает live-транскрипцию.</p>
+          </header>
+          <div class="voice-console">
+            <div class="voice-controls">
+              <button id="start-voice" class="mic-button">● Запись</button>
+              <button id="stop-voice" class="ghost" disabled>■ Стоп</button>
+              <button id="send-transcript" class="ghost">Отправить заметки</button>
+            </div>
+            <textarea id="voice-transcript" placeholder="Здесь появится распознанный текст" rows="6"></textarea>
+            <div class="voice-status">
+              <span id="voice-status">Готово к записи.</span>
+              <button id="upload-audio" class="ghost" disabled>Загрузить запись в backend</button>
+            </div>
+          </div>
+          <section class="panel panel--sub">
+            <header>
+              <h3>Голосовые артефакты</h3>
+              <p>Список всех загруженных записей и транскриптов.</p>
+            </header>
+            <ul id="voice-artifacts" class="timeline"></ul>
+          </section>
+        </section>
+
+        <section id="summary-step" class="panel step-pane">
+          <header>
+            <h2>3. Extracted Summary</h2>
+            <p>Роль, цели, барьеры и текущий статус. Можно скорректировать вручную.</p>
+          </header>
+          <div id="summary-content" class="summary-grid"></div>
+          <details>
+            <summary>Ручное уточнение</summary>
+            <form id="summary-form" class="form-grid">
+              <label>
+                Роль
+                <input type="text" id="summary-role" placeholder="Chief Innovation Officer" />
+              </label>
+              <label>
+                Цели (через запятую)
+                <input type="text" id="summary-goals" placeholder="Запустить 3 AI-кейса,Снизить time-to-market" />
+              </label>
+              <label>
+                Барьеры (через запятую)
+                <input type="text" id="summary-barriers" placeholder="Нет данных,Нужна команда" />
+              </label>
+              <label>
+                Текущее состояние
+                <input type="text" id="summary-state" placeholder="Пилотируем POC" />
+              </label>
+              <button type="submit" class="primary">Сохранить правки</button>
+            </form>
+          </details>
+        </section>
+
+        <section id="roadmap-step" class="panel step-pane">
+          <header>
+            <h2>4. Roadmap</h2>
+            <p>Gantt-like представление этапов лаборатории с зависимостями.</p>
+          </header>
+          <form id="roadmap-form" class="inline-form">
+            <label>
+              Горизонт (месяцы)
+              <input type="number" id="roadmap-horizon" value="6" min="1" max="24" />
+            </label>
+            <button type="submit" class="primary">Сгенерировать</button>
+          </form>
+          <div id="roadmap-content" class="roadmap-grid"></div>
+        </section>
+
+        <section id="checklist-step" class="panel step-pane">
+          <header>
+            <h2>5. Readiness Checklist</h2>
+            <p>Категории Команда/Данные/Инфра/Методология/Бюджет с прогрессом.</p>
+          </header>
+          <form id="checklist-form" class="inline-form">
+            <label>
+              Горизонт (месяцы)
+              <input type="number" id="checklist-horizon" value="6" min="1" max="24" />
+            </label>
+            <button type="submit" class="primary">Сгенерировать</button>
+          </form>
+          <div id="checklist-content" class="checklist-grid"></div>
+          <form id="voice-command-form" class="inline-form">
+            <label>
+              Голосовая команда (NLU)
+              <input type="text" id="voice-command" placeholder="Add checklist item Security: SOC2 readiness" />
+            </label>
+            <button type="submit" class="ghost">Применить</button>
+          </form>
+        </section>
+
+        <section id="finalize-step" class="panel step-pane">
+          <header>
+            <h2>6. Finalize</h2>
+            <p>Фиксируем readiness score, оставляем комментарии и завершаем сессию.</p>
+          </header>
+          <div class="finalize-grid">
+            <div>
+              <label>Readiness Gauge</label>
+              <div class="gauge">
+                <div class="gauge__bar">
+                  <div id="readiness-progress"></div>
+                </div>
+                <span id="readiness-score" class="gauge__value">0%</span>
+              </div>
+            </div>
+            <div>
+              <label for="completion-notes">Комментарии</label>
+              <textarea id="completion-notes" rows="4" placeholder="Итог сессии, дальнейшие шаги"></textarea>
+            </div>
+          </div>
+          <div class="finalize-actions">
+            <button id="complete-session" class="primary">Завершить онбординг</button>
+            <button id="delete-session" class="danger">Удалить сессию</button>
+          </div>
+        </section>
+
+        <section id="export-step" class="panel step-pane">
+          <header>
+            <h2>7. Export & Timeline</h2>
+            <p>Поделитесь результатами с командой и следите за аудиторским следом.</p>
+          </header>
+          <div class="export-links">
+            <a id="export-pdf" href="#" target="_blank" rel="noopener">Скачать PDF</a>
+            <a id="export-md" href="#" target="_blank" rel="noopener">Скачать Markdown</a>
+          </div>
+          <div class="timeline-wrapper">
+            <section>
+              <h3>Транскрипт</h3>
+              <ul id="transcript-list" class="timeline"></ul>
+            </section>
+            <section>
+              <h3>События</h3>
+              <ul id="events-list" class="timeline"></ul>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <small>© 2024 K2Tech AI Lab. Spec-driven build (раздел 5.1 + глобальный UI/UX).</small>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
