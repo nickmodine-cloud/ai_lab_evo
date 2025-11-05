@@ -1,0 +1,18 @@
+
+[project]
+name = "ai-lab-governance"
+version = "0.1.0"
+description = "Store policies, risks, and approval flows for stage gates."
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.103.0",
+    "uvicorn[standard]>=0.23.0",
+    "pydantic>=1.10.0"
+]
+
+[project.scripts]
+dev = "governance.app.main:create_app"
+
+[tool.setuptools]
+package-dir = {"" : "app"}
+packages = ["."]

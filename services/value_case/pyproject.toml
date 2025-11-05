@@ -1,0 +1,18 @@
+
+[project]
+name = "ai-lab-value-case"
+version = "0.1.0"
+description = "Capture strategic context and benefits for opportunities."
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.103.0",
+    "uvicorn[standard]>=0.23.0",
+    "pydantic>=1.10.0"
+]
+
+[project.scripts]
+dev = "value_case.app.main:create_app"
+
+[tool.setuptools]
+package-dir = {"" : "app"}
+packages = ["."]

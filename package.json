@@ -1,0 +1,13 @@
+{
+  "name": "ai-lab-evo",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "pnpm --filter app-web run build --silent",
+    "lint": "pnpm --filter app-web run lint",
+    "test": "pnpm --filter app-web run test"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.16"
+  }
+}

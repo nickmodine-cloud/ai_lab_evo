@@ -1,0 +1,18 @@
+
+[project]
+name = "ai-lab-admin"
+version = "0.1.0"
+description = "Maintain dictionaries, settings, and integrations."
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.103.0",
+    "uvicorn[standard]>=0.23.0",
+    "pydantic>=1.10.0"
+]
+
+[project.scripts]
+dev = "admin.app.main:create_app"
+
+[tool.setuptools]
+package-dir = {"" : "app"}
+packages = ["."]

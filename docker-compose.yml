@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: ai-lab-postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: hypothesis
+      POSTGRES_USER: hypothesis
+      POSTGRES_PASSWORD: hypothesis
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres-data:

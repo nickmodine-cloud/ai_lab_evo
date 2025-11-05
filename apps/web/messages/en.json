@@ -1,0 +1,265 @@
+{
+  "common": {
+    "hypothesisCenter": "Hypothesis Management Center",
+    "newHypothesis": "New Hypothesis",
+    "recordDecision": "Record Decision",
+    "searchPlaceholder": "Search hypotheses, owners, or audit logs… (⌘K)",
+    "searchAriaLabel": "Command search",
+    "days": "d",
+    "hours": "h",
+    "impact": "Impact",
+    "feasibility": "Feasibility",
+    "confidence": "Confidence",
+    "due": "Due",
+    "unknown": "Unknown"
+  },
+  "header": {
+    "title": "Operationalize every AI hypothesis from a single command center.",
+    "description": "Track intake, approvals, and ROI, orchestrating workflows that turn ideas into production-ready AI assets.",
+    "quickLinks": {
+      "decisionLog": "Decision Log",
+      "experimentQueue": "Experiment Queue",
+      "governanceTasks": "Governance Tasks"
+    }
+  },
+  "hypotheses": {
+    "snapshot": {
+      "portfolioValue": "Portfolio Value",
+      "experimentsInFlight": "Experiments in Flight",
+      "avgTimeToValue": "Avg Time to Value",
+      "governancePending": "Governance Pending"
+    },
+    "kanban": {
+      "title": "Lifecycle Operations",
+      "subtitle": "Track velocity at each stage.",
+      "description": "SLAs, conversion, and ownership rolled up across the six-stage hypothesis journey.",
+      "activeHypotheses": "{count} active hypotheses",
+      "averageDays": "Avg Days",
+      "conversion": "Conversion",
+      "sla": "SLA",
+      "expand": "Go fullscreen",
+      "collapse": "Collapse",
+      "health": {
+        "onTrack": "On Track",
+        "warning": "Warning",
+        "risk": "Risk"
+      },
+      "noHypotheses": "No hypotheses at this stage",
+      "nextGate": "Next Gate"
+    },
+    "detail": {
+      "sponsor": "Sponsor",
+      "governanceBrief": "Governance Brief",
+      "impactScore": "Impact Score",
+      "feasibility": "Feasibility",
+      "confidence": "Confidence",
+      "targetValue": "Target Value",
+      "nextMilestone": "Next Milestone",
+      "nextMilestoneDescription": "Align experiment results and governance evidence before requesting advancement.",
+      "linkedExperiments": "Linked Experiments",
+      "gatingChecklist": "Gating Checklist",
+      "dependencies": "Dependencies"
+    },
+    "matrix": {
+      "title": "Prioritization Grid",
+      "subtitle": "Impact vs. Feasibility.",
+      "displayedInitiatives": "{count} displayed initiatives",
+      "quadrants": {
+        "pursue": {
+          "label": "Pursue",
+          "description": "High impact + high feasibility. Immediately push to experiment backlog."
+        },
+        "partner": {
+          "label": "Partner",
+          "description": "Influential but constrained. Engage data engineering or management support."
+        },
+        "optimize": {
+          "label": "Optimize",
+          "description": "Operational wins with minimal effort. Keep lightweight and iterate quickly."
+        },
+        "observe": {
+          "label": "Observe",
+          "description": "Track signals, gather data, and reassess in the next cycle."
+        }
+      },
+      "noHypotheses": "No hypotheses in this quadrant",
+      "more": "+{count} more"
+    },
+    "ops": {
+      "title": "Priority Actions",
+      "subtitle": "Resolve blockers before they stall velocity.",
+      "critical": "{count} critical",
+      "status": {
+        "atRisk": "At Risk",
+        "dueSoon": "Due Soon",
+        "blocked": "Blocked"
+      }
+    },
+    "activity": {
+      "title": "Decision Log",
+      "subtitle": "Every action logged for audit and replay.",
+      "impact": {
+        "positive": "Positive",
+        "neutral": "Neutral",
+        "negative": "Negative"
+      },
+      "recordedBy": "Recorded by {actor}"
+    },
+    "stages": {
+      "IDEATION": "Ideation",
+      "SCOPING": "Scoping",
+      "PRIORITIZATION": "Prioritization",
+      "EXPERIMENTATION": "Experimentation",
+      "EVALUATION": "Evaluation",
+      "SCALING": "Scaling",
+      "PRODUCTION": "Production",
+      "ARCHIVED": "Archived"
+    },
+    "detailPanel": {
+      "syncing": "Syncing",
+      "advanceStage": "Advance Stage",
+      "close": "Close viewer",
+      "portfolioProfile": "Portfolio Profile",
+      "stage": "Stage",
+      "stageHealth": "Stage Health",
+      "targetValue": "Target Value",
+      "historyTitle": "Stage Timeline",
+      "historyEmpty": "No stage history yet.",
+      "checklist": {
+        "title": "Gating Checklist",
+        "empty": "No checklist items yet",
+        "ownerLabel": "Owner: {owner}",
+        "dueLabel": "Due: {due}",
+        "addTitle": "Add Checklist Item",
+        "labelPlaceholder": "Checklist item",
+        "ownerPlaceholder": "Responsible",
+        "duePlaceholder": "Due date",
+        "addButton": "Add item",
+        "status": {
+          "pending": "Pending",
+          "in-progress": "In progress",
+          "complete": "Complete"
+        },
+        "delete": "Delete"
+      },
+      "attachments": {
+        "title": "Attachments",
+        "empty": "No attachments yet",
+        "addTitle": "Add Attachment",
+        "namePlaceholder": "Name",
+        "urlPlaceholder": "Link",
+        "versionPlaceholder": "Version",
+        "addButton": "Add file",
+        "meta": "Contributor: {owner}"
+      },
+      "tasks": {
+        "title": "Operational Tasks",
+        "empty": "No active tasks",
+        "ownerLabel": "Owner: {owner}",
+        "dueLabel": "Due: {due}",
+        "status": {
+          "due-soon": "Due soon",
+          "at-risk": "At risk",
+          "blocked": "Blocked"
+        },
+        "severity": {
+          "medium": "Medium",
+          "high": "High",
+          "critical": "Critical"
+        }
+      },
+      "activity": {
+        "title": "Activity Feed",
+        "empty": "No activity yet"
+      },
+      "approvals": {
+        "title": "Approvals",
+        "empty": "No active approvals",
+        "notesPlaceholder": "Comment for approver",
+        "status": {
+          "pending": "Pending",
+          "approved": "Approved",
+          "rejected": "Rejected"
+        },
+        "actions": {
+          "approve": "Approve",
+          "reject": "Reject",
+          "pending": "Mark pending",
+          "saveNotes": "Save note"
+        }
+      },
+      "comments": {
+        "title": "Discussion",
+        "empty": "No comments yet.",
+        "newLabel": "New comment",
+        "placeholder": "Share an update or ask a question…",
+        "addButton": "Add",
+        "edit": "Edit",
+        "save": "Save",
+        "cancel": "Cancel",
+        "resolved": "Resolved",
+        "unresolve": "Clear status",
+        "delete": "Delete",
+        "reply": "Reply",
+        "replyPlaceholder": "Reply to comment…",
+        "sendReply": "Send reply"
+      },
+      "labels": {
+        "owner": "Owner",
+        "sponsor": "Sponsor",
+        "notes": "Notes"
+      }
+    },
+    "toasts": {
+      "stageMoved": "Stage updated to {stage}",
+      "stageMoveFailed": "Failed to update stage",
+      "commentCreated": "Comment posted",
+      "commentUpdated": "Comment updated",
+      "commentDeleted": "Comment deleted",
+      "attachmentAdded": "Attachment uploaded",
+      "checklistAdded": "Checklist item added",
+      "checklistUpdated": "Checklist item updated",
+      "checklistDeleted": "Checklist item removed",
+      "taskUpdated": "Task updated",
+      "approvalUpdated": "Approval status saved",
+      "operationFailed": "Operation failed. Try again."
+    }
+  },
+  "locale": {
+    "label": "Language",
+    "english": "English",
+    "russian": "Russian"
+  },
+  "navigation": {
+    "overview": "Overview",
+    "hypotheses": "Hypotheses",
+    "experiments": "Experiments",
+    "value": "Value & ROI",
+    "people": "People",
+    "governance": "Governance",
+    "resources": "Resources",
+    "labs": "Labs",
+    "dashboards": "Dashboards",
+    "notifications": "Notifications",
+    "files": "Files",
+    "admin": "Administration",
+    "analytics": "Analytics",
+    "workflows": "Workflows",
+    "descriptions": {
+      "overview": "Portfolio pulse with KPIs, alerts, and cross-domain queues.",
+      "hypotheses": "Kanban, scoring, and transitions tied to lifecycle stages.",
+      "experiments": "Runs, metrics, and artifacts linked to source hypothesis.",
+      "value": "Structured value cases and ROI calculators for hypothesis inputs.",
+      "people": "Roles, access policies, and approvals aligned with governance stages.",
+      "governance": "Risks, approvals, and policy knowledge base with workflow hooks.",
+      "resources": "GPU and compute orchestration matched to experiment demand.",
+      "labs": "Workspaces, membership, and visibility controls by portfolio.",
+      "dashboards": "Executive, portfolio, and team dashboards with hypothesis metrics.",
+      "notifications": "Stage, task, and SLA threat signals with context.",
+      "files": "Versioned artifacts and evidence tied to hypotheses and experiments.",
+      "admin": "Dictionaries, integrations, and workflow templates.",
+      "analytics": "Time series, bottleneck insights, and predictive signals.",
+      "workflows": "BPMN-style designer for hypothesis stages and task automation."
+    }
+  }
+}

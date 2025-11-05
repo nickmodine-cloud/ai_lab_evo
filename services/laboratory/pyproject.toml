@@ -1,0 +1,18 @@
+
+[project]
+name = "ai-lab-laboratory"
+version = "0.1.0"
+description = "Manage lab workspaces, membership, and visibility."
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.103.0",
+    "uvicorn[standard]>=0.23.0",
+    "pydantic>=1.10.0"
+]
+
+[project.scripts]
+dev = "laboratory.app.main:create_app"
+
+[tool.setuptools]
+package-dir = {"" : "app"}
+packages = ["."]

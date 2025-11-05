@@ -1,0 +1,18 @@
+
+[project]
+name = "ai-lab-roi-calculator"
+version = "0.1.0"
+description = "Compute ROI scenarios and export results to hypotheses."
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.103.0",
+    "uvicorn[standard]>=0.23.0",
+    "pydantic>=1.10.0"
+]
+
+[project.scripts]
+dev = "roi_calculator.app.main:create_app"
+
+[tool.setuptools]
+package-dir = {"" : "app"}
+packages = ["."]

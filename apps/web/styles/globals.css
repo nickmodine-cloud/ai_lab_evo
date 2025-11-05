@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme {
+  --color-base: #020202;
+  --color-surface: #0b0b11;
+  --color-surface-muted: #13131c;
+  --color-surface-hover: #1a1a26;
+  --color-border: #1f2233;
+  --color-text-primary: #f8f9fb;
+  --color-text-secondary: #a4acc3;
+  --color-neon-green: #00ff88;
+  --color-neon-turquoise: #40e0d0;
+  
+  --font-family-cascadia: "Cascadia Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  
+  --transition-timing-soft-spring: cubic-bezier(0.22, 1, 0.36, 1);
+  
+  --shadow-neon: 0 0 28px rgba(0, 255, 136, 0.45);
+  --shadow-neon-hover: 0 0 36px rgba(64, 224, 208, 0.55);
+}
+
+:root {
+  color-scheme: dark;
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 10% 3.9%;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 240 4.9% 83.9%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-base);
+    color: var(--color-text-primary);
+  }
+
+  body {
+    @apply min-h-screen antialiased;
+    font-family: var(--font-family-cascadia);
+    color: var(--color-text-primary);
+    background:
+      radial-gradient(circle at 15% 20%, rgba(0, 255, 136, 0.18), transparent 55%),
+      radial-gradient(circle at 80% 10%, rgba(64, 224, 208, 0.12), transparent 60%),
+      radial-gradient(circle at 50% 80%, rgba(0, 255, 136, 0.1), transparent 65%),
+      #020202;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+    color: var(--color-text-secondary);
+    transition-timing-function: var(--transition-timing-soft-spring);
+  }
+
+  .font-cascadia {
+    font-family: "Cascadia Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+  
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+
+.neon-card {
+  @apply rounded-2xl border border-transparent p-6 transition duration-300;
+  background-color: var(--color-surface);
+  box-shadow: 0 0 28px rgba(0, 255, 136, 0.35);
+  border-image: linear-gradient(135deg, rgba(0, 255, 136, 0.3), rgba(64, 224, 208, 0.25)) 1;
+  transition-timing-function: var(--transition-timing-soft-spring);
+}
+
+.neon-card:hover {
+  box-shadow: 0 0 36px rgba(64, 224, 208, 0.5);
+  background-color: rgba(19, 19, 28, 0.95);
+}

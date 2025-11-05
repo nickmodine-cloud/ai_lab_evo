@@ -1,0 +1,18 @@
+
+[project]
+name = "ai-lab-resource"
+version = "0.1.0"
+description = "Coordinate compute pools, reservations, and costs."
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.103.0",
+    "uvicorn[standard]>=0.23.0",
+    "pydantic>=1.10.0"
+]
+
+[project.scripts]
+dev = "resource.app.main:create_app"
+
+[tool.setuptools]
+package-dir = {"" : "app"}
+packages = ["."]

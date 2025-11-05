@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 16, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/apps/web/middleware.ts"],"sourcesContent":["import { NextRequest, NextResponse } from 'next/server';\n\n// Temporarily simplified middleware - just pass through\n// This is to test if pages work without next-intl middleware\nexport default function middleware(request: NextRequest) {\n  return NextResponse.next();\n}\n\nexport const config = {\n  matcher: [\n    '/((?!_next|api|favicon.ico|.*\\\\..*).*)'\n  ]\n};\n\n\n\n\n\n\n\n\n"],"names":[],"mappings":";;;;;;AAAA;AAAA;;AAIe,SAAS,WAAW,OAAoB;IACrD,OAAO,iWAAY,CAAC,IAAI;AAC1B;AAEO,MAAM,SAAS;IACpB,SAAS;QACP;KACD;AACH"}}]
+}
